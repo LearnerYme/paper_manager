@@ -3,7 +3,7 @@
 if [ ! -d "./paper_folder/" ];then
     mkdir paper_folder
 fi
-if [! -e "./paper_info.db" ];then
+if [ ! -e "./paper_info.db" ];then
     python3 paper_manager.py -i True
 fi
 sysname=`uname`

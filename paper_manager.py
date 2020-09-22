@@ -1,5 +1,4 @@
 import sqlite3
-import numpy as np
 import os
 import argparse
 import datetime
@@ -35,6 +34,9 @@ if init:
     conn.commit()
     cur.close()
     conn.close()
+    with open('PM.sh', 'w') as f:
+        f.write('#!/bin/bash\npython3 paper_manager.py')
+    os.system('chmod u+x PM.sh')
     print('Initialization finished.')
     exit()
 
@@ -246,7 +248,7 @@ search_res.bind('<Button-3>', show_menu)
 
 #about me
 def aboutme_cmd():
-    messagebox.showinfo('about me', '''yghuang@mails.ccnu.edu.cn\nhttps://github.com/LearnerYme/paper_manager''')
+    messagebox.showinfo('about me', '''Version: 0.1.1\nMy email: yghuang@mails.ccnu.edu.cn\nhttps://github.com/LearnerYme/paper_manager''')
     return
 aboutme = tk.Button(win, text='about me', command=aboutme_cmd)
 aboutme.pack()
